@@ -223,9 +223,9 @@ local frames = function(opts)
 end
 
 return telescope.register_extension {
-  setup = function()
+  setup = function(opts)
     require('dap.ui').pick_one = function(items, prompt, label_fn, cb)
-      local opts = {}
+      local opts = opts or {}
       pickers.new(opts, {
         prompt_title = prompt,
         finder    = finders.new_table {
